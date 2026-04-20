@@ -6,6 +6,21 @@
 
   <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
     <form action="../scripts/authprocess.php" method="POST" class="space-y-6">
+      <!-- firstname -->
+            <div>
+        <label for="firstname" class="block text-sm/6 font-medium text-gray-900">First name</label>
+        <div class="mt-2">
+          <input id="firstname" type="text" name="firstname" required autocomplete="firstname" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border border-gray-400 -outline-offset-1  placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+        </div>
+      </div>
+      <!-- lastname -->
+            <div>
+        <label for="lastname" class="block text-sm/6 font-medium text-gray-900">Last name</label>
+        <div class="mt-2">
+          <input id="lastname" type="email" name="lastname" required autocomplete="lastname" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border border-gray-400 -outline-offset-1  placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+        </div>
+      </div>
+      <!-- email -->
       <div>
         <label for="email" class="block text-sm/6 font-medium text-gray-900">Email address</label>
         <div class="mt-2">
@@ -36,8 +51,8 @@
     </form>
 
     <p class="mt-10 text-center text-sm/6 text-gray-500">
-      Don’t have an account yet?
-      <a href="#" class="font-semibold text-blue-600 hover:text-blue-300">Sign up</a>
+      Already have an account?
+      <a href="./login.php" class="font-semibold text-blue-600 hover:text-blue-300">Login</a>
     </p>
   </div>
 </div>
