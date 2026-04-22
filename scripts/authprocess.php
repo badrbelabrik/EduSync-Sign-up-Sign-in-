@@ -1,5 +1,5 @@
 <?php
-require_once("./includes/connection.php");
+require_once("../includes/connection.php");
 session_start();
 require_once("../includes/functions.php");
 
@@ -11,8 +11,8 @@ if(isset($_POST['registration'])){
     $firstname = sanitize($_POST['firstname'] ?? '');
     $lastname = sanitize($_POST['lastname'] ?? '');
     $email = sanitize($_POST['email'] ?? '');
-    $password = $_POST['password'];
-    $confirmPassword = $_POST['confirmpassword'];
+    $password = sanitize($_POST['password']);
+    $confirmPassword = sanitize($_POST['confirmpassword']);
 
     if (emptyInputSignup($firstname,$lastname,$email,$password,$confirmPassword)) {
         header("location: ../public/register.php?error=emptyinput");
@@ -38,11 +38,11 @@ if(isset($_POST['registration'])){
         exit();
     }
 
-    if(userExists($con,$firstname,$lastname,$email) !== false){
+    if(userExists($con,$email) !== false){
         header("location: ../public/register.php?error=useralreadyexist");
         exit();
     } else{
-        createUser($con,$firstname,$lastname,$email,$password);
+        createUser($con,$firstname,$lastname,$email,$password,3);
     }
 
 }

@@ -51,30 +51,32 @@ function passwordMisMatch($pwd,$pwdRepeat){
     return $result;
 }
 
-function userExists($con, $firstname, $lastname, $email){
-    $query = "SELECT * FROM users WHERE firstname = ? OR lastname = ? OR email = ?;";
+function userExists($con,$email){
+    $query = "SELECT * FROM users WHERE email = ?;";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt,$query)){
         header("location: ../public/register.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "sss", $firstname , $lastname, $email);
+    mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
 
     $resultData = mysqli_stmt_get_result($stmt);
 
     if ($row = mysqli_fetch_assoc($resultData)){
+        mysqli_stmt_close($stmt);
         return $row;
     } else{
         $result = false;
+        mysqli_stmt_close($stmt);
         return $result;
     }
-    mysqli_stmt_close($stmt);
+    
 }
 
-function createUser($con, $firstname, $lastname, $email, $password){
-    $query = "INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)";
+function createUser($con, $firstname, $lastname, $email, $password, $role){
+    $query = "INSERT INTO users (firstname, lastname, email, password, id_role) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($con);
     if(!mysqli_stmt_prepare($stmt,$query)){
         header("location: ../public/register.php?error=stmtfailed");
@@ -83,7 +85,7 @@ function createUser($con, $firstname, $lastname, $email, $password){
 
     $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssss", $firstname , $lastname, $email, $hashedPwd);
+    mysqli_stmt_bind_param($stmt, "ssssi", $firstname , $lastname, $email, $hashedPwd, $role);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../public/register.php?error=none");
