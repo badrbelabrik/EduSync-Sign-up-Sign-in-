@@ -43,8 +43,26 @@ if(isset($_POST['registration'])){
         exit();
     } else{
         createUser($con,$firstname,$lastname,$email,$password,3);
+        exit();
+    }
+}
+
+if(isset($_POST['login'])){
+    $email = sanitize($_POST['email']);
+    $password = sanitize($_POST['password']);
+
+    require_once 'dbh.inc.php';
+    require_once 'functions.inc.php';
+
+    if(emptyInputLogin($email,$password)){
+        header("location: ../public/login.php?error=emptyinput");
+        exit();
     }
 
+    loginUser($con,$email,$password);
+} else{
+    header("location: ../public/login.php");
+    exit();
 }
 
 ?>

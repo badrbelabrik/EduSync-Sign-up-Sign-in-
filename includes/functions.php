@@ -91,3 +91,23 @@ function createUser($con, $firstname, $lastname, $email, $password, $role){
     header("location: ../public/register.php?error=none");
     exit();
 }
+
+function emptyInputLogin($email,$password){
+    $result = null;
+    if(empty($email) || empty($password)){
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function loginUser($con,$email,$password){
+    $userExist = userExists($con,$email);
+    if($userExist === false){
+        header("location: ../public/login.php?error=invalidcredentials");
+        exit();
+    }
+
+    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+}

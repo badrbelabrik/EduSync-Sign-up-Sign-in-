@@ -15,10 +15,10 @@
     </div> <!-- Navigation -->
     <nav class="flex items-center space-x-6 text-gray-700 font-medium">
         <a href="index.php" class="hover:text-blue-600 transition">Home</a>
-        <a href="login.php" class="hover:text-blue-600 transition">Login</a>
-        <a href="register.php" class="hover:text-blue-600 transition">Register</a>
+        <a href="#" class="hover:text-blue-600 transition">About us</a>
+        <a href="#" class="hover:text-blue-600 transition">Contact us</a>
     </nav> <!-- CTA Button -->
     <div>
-        <a href="register.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"> Get Started </a>
+        <a href="login.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"> Login </a>
     </div>
     </header>
