@@ -17,7 +17,7 @@
             <div>
         <label for="lastname" class="block text-sm/6 font-medium text-gray-900">Last name</label>
         <div class="mt-2">
-          <input id="lastname" type="email" name="lastname" required autocomplete="lastname" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border border-gray-400 -outline-offset-1  placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+          <input id="lastname" type="text" name="lastname" required autocomplete="lastname" class="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 border border-gray-400 -outline-offset-1  placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
         </div>
       </div>
       <!-- email -->
