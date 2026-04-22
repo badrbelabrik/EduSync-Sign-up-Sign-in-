@@ -19,6 +19,6 @@
         <a href="#" class="hover:text-blue-600 transition">Contact us</a>
     </nav> <!-- CTA Button -->
     <div>
-        <a href="login.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"> Login </a>
+        <a href="../public/login.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"> Login </a>
     </div>
     </header>

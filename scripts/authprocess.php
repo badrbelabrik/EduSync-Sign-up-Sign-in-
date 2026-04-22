@@ -11,8 +11,8 @@ if(isset($_POST['registration'])){
     $firstname = sanitize($_POST['firstname'] ?? '');
     $lastname = sanitize($_POST['lastname'] ?? '');
     $email = sanitize($_POST['email'] ?? '');
-    $password = sanitize($_POST['password']);
-    $confirmPassword = sanitize($_POST['confirmpassword']);
+    $password = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['confirmpassword'] ?? '';
 
     if (emptyInputSignup($firstname,$lastname,$email,$password,$confirmPassword)) {
         header("location: ../public/register.php?error=emptyinput");
@@ -48,11 +48,8 @@ if(isset($_POST['registration'])){
 }
 
 if(isset($_POST['login'])){
-    $email = sanitize($_POST['email']);
-    $password = sanitize($_POST['password']);
-
-    require_once 'dbh.inc.php';
-    require_once 'functions.inc.php';
+    $email = sanitize($_POST['email'] ?? '');
+    $password = $_POST['password'];
 
     if(emptyInputLogin($email,$password)){
         header("location: ../public/login.php?error=emptyinput");
