@@ -4,7 +4,7 @@ session_start();
 require_once("../includes/functions.php");
 
 function sanitize($data) {
-    return htmlspecialchars(strip_tags(trim($data)));
+    return htmlspecialchars((trim($data)));
 }
 
 if(isset($_POST['registration'])){

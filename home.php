@@ -10,7 +10,7 @@ include("./includes/header.php")
 <td>Details</td>
 </tr>
 <?php
-$query = mysqli_query($con,"SELECT * FROM users");
+$query = mysqli_query($conn,"SELECT * FROM users");
 while($row = mysqli_fetch_assoc($query))
     { ?>
        <tr>
