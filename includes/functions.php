@@ -88,7 +88,7 @@ function createUser($con, $firstname, $lastname, $email, $password, $role){
     mysqli_stmt_bind_param($stmt, "ssssi", $firstname , $lastname, $email, $hashedPwd, $role);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../public/register.php?error=none");
+    header("location: ../public/login.php?message=registersuccess");
     exit();
 }
 

@@ -6,7 +6,14 @@ if(isset($_SESSION["username"])){
 include '../includes/header.php';
 ?>
 
-<div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+<div class="flex min-h-full flex-col justify-center items-center px-6 py-12 lg:px-8">
+  <?php 
+  if(isset($_GET["message"])){
+    if($_GET["message"] == "registersuccess"){
+      echo '<p class="text-green-400">You have successfully registered,you can login now</p>';
+    }  
+  }
+  ?>
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
   </div>
@@ -33,7 +40,7 @@ include '../includes/header.php';
       </div>
       <?php 
         if(isset($_GET["error"])){
-          if($_GET["error"] = "invalidcredentials"){
+          if($_GET["error"] == "invalidcredentials"){
             echo "<p class='text-red-500'>Invalid credentials</p>";
           }
         }

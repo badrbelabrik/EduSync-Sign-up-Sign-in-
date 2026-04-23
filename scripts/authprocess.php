@@ -38,11 +38,11 @@ if(isset($_POST['registration'])){
         exit();
     }
 
-    if(userExists($con,$email) !== false){
+    if(userExists($conn,$email) !== false){
         header("location: ../public/register.php?error=useralreadyexist");
         exit();
     } else{
-        createUser($con,$firstname,$lastname,$email,$password,3);
+        createUser($conn,$firstname,$lastname,$email,$password,3);
         exit();
     }
 }
@@ -56,7 +56,7 @@ if(isset($_POST['login'])){
         exit();
     }
 
-    loginUser($con,$email,$password);
+    loginUser($conn,$email,$password);
 } else{
     header("location: ../public/login.php");
     exit();

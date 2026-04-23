@@ -28,7 +28,7 @@ if (session_status() === PHP_SESSION_NONE) {
             if(isset($_SESSION["username"])){
                 echo '
                 <div class="flex gap-2 items-center">
-                    <a href="../public/dashboard.php" class="text-blue-500"> '.$_SESSION["username"].' </a>
+                    <a href="../public/dashboard.php" class="text-blue-500"> '.$_SESSION["email"].' </a>
                     <a href="../scripts/logout.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"> Log out </a>
                 </div>';
             } else {
