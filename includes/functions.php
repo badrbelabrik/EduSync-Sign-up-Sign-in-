@@ -112,14 +112,13 @@ function loginUser($con,$email,$password){
     $checkpwd = password_verify($password,$pwdHashed);
 
     if($checkpwd === false){
-        header("location: ../public/login.php?error=wrongpassword");
+        header("location: ../public/login.php?error=invalidcredentials");
         exit();
     } 
 
         session_regenerate_id(true);
         $_SESSION["userid"] = $userExist["id"];
-        $_SESSION["firstname"] = $userExist["firstname"];
-        $_SESSION["lastname"] = $userExist["lastname"];
+        $_SESSION["username"] = $userExist["firstname"]. ' '.$userExist["lastname"];
         $_SESSION["email"] = $userExist["email"];
         $_SESSION["role"] = $userExist["id_role"];
 

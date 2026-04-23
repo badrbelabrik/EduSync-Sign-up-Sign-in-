@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,9 +21,20 @@
     <nav class="flex items-center space-x-6 text-gray-700 font-medium">
         <a href="index.php" class="hover:text-blue-600 transition">Home</a>
         <a href="#" class="hover:text-blue-600 transition">About us</a>
-        <a href="#" class="hover:text-blue-600 transition">Contact us</a>
+        <a href="#" class="hover:text-blue-600 transition">Contact</a>
     </nav> <!-- CTA Button -->
     <div>
-        <a href="../public/login.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"> Login </a>
+        <?php 
+            if(session_status() === PHP_SESSION_ACTIVE){
+                echo '
+                <div class="flex gap-2 items-center">
+                    <a href="../public/dashboard.php" class="text-blue-500"> '.$_SESSION["username"].' </a>
+                    <a href="../scripts/logout.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"> Log out </a>
+                </div>';
+            } else {
+                echo '<a href="../public/login.php" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"> Login </a>';
+            }
+        ?>
+        
     </div>
     </header>
