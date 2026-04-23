@@ -1,4 +1,6 @@
-<?php include '../includes/header.php'; ?>
+<?php 
+session_start();
+include '../includes/header.php'; ?>
 <main class="flex flex-col items-center justify-center text-center px-6 py-16">
 
     <!-- Hero Section -->
@@ -10,16 +12,21 @@
         EduSync is a simple platform that helps you manage your learning experience. 
         Register, log in, and access your personalized dashboard.
     </p>
-
-    <!-- CTA Buttons -->
-    <div class="flex space-x-4 mb-12">
+    <?php     
+    if(!isset($_SESSION["username"])){
+        echo   '<div class="flex space-x-4 mb-12">
         <a href="register.php" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
             Get Started
         </a>
         <a href="login.php" class="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg hover:bg-blue-50 transition">
             Login
         </a>
-    </div>
+    </div>';
+    }
+    
+
+    ?>
+
 
     <!-- Features Section -->
     <div class="grid md:grid-cols-3 gap-6 max-w-5xl">

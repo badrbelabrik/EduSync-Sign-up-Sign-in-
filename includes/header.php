@@ -25,7 +25,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </nav> <!-- CTA Button -->
     <div>
         <?php 
-            if(session_status() === PHP_SESSION_ACTIVE){
+            if(isset($_SESSION["username"])){
                 echo '
                 <div class="flex gap-2 items-center">
                     <a href="../public/dashboard.php" class="text-blue-500"> '.$_SESSION["username"].' </a>

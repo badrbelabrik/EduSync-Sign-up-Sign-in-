@@ -118,6 +118,8 @@ function loginUser($con,$email,$password){
 
         session_regenerate_id(true);
         $_SESSION["userid"] = $userExist["id"];
+        $_SESSION["firstname"] = $userExist["firstname"];
+        $_SESSION["lastname"] = $userExist["lastname"];
         $_SESSION["username"] = $userExist["firstname"]. ' '.$userExist["lastname"];
         $_SESSION["email"] = $userExist["email"];
         $_SESSION["role"] = $userExist["id_role"];
